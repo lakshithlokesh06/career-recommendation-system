@@ -12,7 +12,7 @@ data = pd.read_csv("career_dataset.csv")
 
 # Create HuggingFace LLM client
 client = InferenceClient(
-    model="mistralai/Mistral-7B-Instruct-v0.2",
+    model="meta-llama/Meta-Llama-3-8B-Instruct",
     token=st.secrets["HF_TOKEN"]
 )
 
