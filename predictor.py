@@ -66,7 +66,7 @@ def recommend_career(skill1, type1, skill2, type2, skill3, type3, skill4, type4,
         skill5.lower().strip()
     ]
 
-        primary_matched = [s for s in student_skills if s in primary_list]
+    primary_matched = [s for s in student_skills if s in primary_list]
     secondary_matched = [s for s in student_skills if s in secondary_list]
 
     other_skills = [
