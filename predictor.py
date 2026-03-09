@@ -3,14 +3,14 @@ import joblib
 import streamlit as st
 from groq import Groq
 
-# Load ML model
+# Load trained model
 model = joblib.load("model.pkl")
 vectorizer = joblib.load("vectorizer.pkl")
 
 # Load dataset
 data = pd.read_csv("career_dataset.csv")
 
-# Groq client
+# Initialize Groq client
 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
 
@@ -88,13 +88,13 @@ Primary skills: {', '.join(primary_matched)}
 Secondary skills: {', '.join(secondary_matched)}
 Other skills: {', '.join(other_skills)}
 
-Write EXACTLY three paragraphs.
+Write exactly three paragraphs.
 
-Paragraph 1: Explain why the primary skills match the career {predicted_career}.
+Paragraph 1: Explain why the primary skills match the career.
 
-Paragraph 2: Explain how the secondary skills support this career and mention related careers.
+Paragraph 2: Explain how secondary skills support this career and mention related careers.
 
-Paragraph 3: Explain how the other skills relate to other possible career paths.
+Paragraph 3: Explain how other skills relate to other possible career paths.
 
 Leave one blank line between paragraphs.
 """
@@ -102,11 +102,13 @@ Leave one blank line between paragraphs.
     chat = client.chat.completions.create(
         model="llama3-8b-8192",
         messages=[
-            {"role": "system", "content": "You are a professional career advisor."},
+            {"role": "system", "content": "You are an expert career advisor."},
             {"role": "user", "content": prompt}
         ],
         temperature=0.4,
-        max_tokens=400
+        top_p=1,
+        max_tokens=400,
+        stream=False
     )
 
     explanation = chat.choices[0].message.content
