@@ -104,7 +104,7 @@ Suggest possible careers where these skills are useful.
 Leave one blank line between each paragraph.
 """
 
-    API_URL = "https://api-inference.huggingface.co/models/google/flan-t5-large"
+    API_URL = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2"
 
     headers = {
         "Authorization": f"Bearer {st.secrets['HF_TOKEN']}"
