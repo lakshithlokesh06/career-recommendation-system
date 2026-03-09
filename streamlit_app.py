@@ -8,28 +8,23 @@ def load_predictor():
 recommend_career = load_predictor()
 
 st.title("AI Career Recommendation System")
-
 st.write("Enter 5 skills and select whether they are Primary or Secondary.")
 
-# Create two columns
-col1, col2 = st.columns([2,1])
+skill_inputs = []
 
-with col1:
+for i in range(1,6):
 
-    skill1 = st.text_input("Skill 1")
-    type1 = st.radio("Skill 1 Type", ["Primary","Secondary"], horizontal=True)
+    skill = st.text_input(f"Skill {i}")
 
-    skill2 = st.text_input("Skill 2")
-    type2 = st.radio("Skill 2 Type", ["Primary","Secondary"], horizontal=True)
+    type_skill = st.radio(
+        f"Skill {i} Type",
+        ["Primary","Secondary"],
+        horizontal=True,
+        key=f"type{i}"
+    )
 
-    skill3 = st.text_input("Skill 3")
-    type3 = st.radio("Skill 3 Type", ["Primary","Secondary"], horizontal=True)
+    skill_inputs.append((skill,type_skill))
 
-    skill4 = st.text_input("Skill 4")
-    type4 = st.radio("Skill 4 Type", ["Primary","Secondary"], horizontal=True)
-
-    skill5 = st.text_input("Skill 5")
-    type5 = st.radio("Skill 5 Type", ["Primary","Secondary"], horizontal=True)
 
 predict = st.button("Predict Career")
 
@@ -38,14 +33,15 @@ if predict:
     with st.spinner("🔍 Analyzing skills and predicting career..."):
 
         result = recommend_career(
-            skill1, type1,
-            skill2, type2,
-            skill3, type3,
-            skill4, type4,
-            skill5, type5
+            skill_inputs[0][0], skill_inputs[0][1],
+            skill_inputs[1][0], skill_inputs[1][1],
+            skill_inputs[2][0], skill_inputs[2][1],
+            skill_inputs[3][0], skill_inputs[3][1],
+            skill_inputs[4][0], skill_inputs[4][1],
         )
 
-    with col2:
-        st.subheader("🎯 Career Recommendation")
-        st.success(result)
-        st.markdown("---")
+    st.markdown("---")
+
+    st.subheader("🎯 Career Recommendation")
+
+    st.success(result)
