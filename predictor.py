@@ -1,7 +1,7 @@
 import pandas as pd
 import joblib
 import streamlit as st
-import requests
+from openai import OpenAI
 
 # Load trained model and vectorizer
 model = joblib.load("model.pkl")
@@ -9,6 +9,7 @@ vectorizer = joblib.load("vectorizer.pkl")
 
 # Load dataset
 data = pd.read_csv("career_dataset.csv")
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 
 def recommend_career(skill1, type1, skill2, type2, skill3, type3, skill4, type4, skill5, type5):
@@ -101,32 +102,17 @@ Each paragraph should contain 3–4 sentences.
 Leave one blank line between paragraphs.
 """
 
-    API_URL = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2"
+    response = client.chat.completions.create(
+    model="gpt-4o",
+    messages=[
+        {"role": "system", "content": "You are an AI career advisor."},
+        {"role": "user", "content": prompt}
+    ],
+    temperature=0.7,
+    max_tokens=300
+)
 
-    headers = {
-        "Authorization": f"Bearer {st.secrets['HF_TOKEN']}"
-    }
-
-    payload = {
-        "inputs": prompt,
-        "parameters": {
-            "max_new_tokens": 320,
-            "temperature": 0.8
-        }
-    }
-
-    response = requests.post(API_URL, headers=headers, json=payload)
-
-    try:
-        result_json = response.json()
-
-        if isinstance(result_json, list) and "generated_text" in result_json[0]:
-            explanation = result_json[0]["generated_text"]
-        else:
-            explanation = "AI explanation could not be generated."
-
-    except Exception:
-        explanation = "AI explanation service temporarily unavailable."
+explanation = response.choices[0].message.content
 
     result = f"""
 PREDICTED CAREER: {predicted_career}
