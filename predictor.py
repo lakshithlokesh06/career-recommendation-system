@@ -74,19 +74,35 @@ def recommend_career(skill1, type1, skill2, type2, skill3, type3, skill4, type4,
         if s not in primary_list and s not in secondary_list
     ]
 
-    # AI prompt
+    # -------- AI PROMPT --------
+
     prompt = f"""
-    A student entered the following skills: {', '.join(student_skills)}.
+You are an AI career advisor.
 
-    Predicted career: {predicted_career}
+A student entered the following skills:
+{', '.join(student_skills)}
 
-    Primary matched skills: {', '.join(primary_matched)}
-    Secondary matched skills: {', '.join(secondary_matched)}
-    Other skills: {', '.join(other_skills)}
+The predicted career is: {predicted_career}
 
-    Explain in one professional paragraph why this career suits the student
-    based on the skills provided.
-    """
+Primary matched skills: {', '.join(primary_matched)}
+Secondary matched skills: {', '.join(secondary_matched)}
+Other skills: {', '.join(other_skills)}
+
+Write three short paragraphs:
+
+Paragraph 1:
+Explain why the PRIMARY skills ({', '.join(primary_matched)}) strongly match the career {predicted_career}.
+
+Paragraph 2:
+Explain how the SECONDARY skills ({', '.join(secondary_matched)}) support this career.
+Also suggest which career paths commonly use these skills.
+
+Paragraph 3:
+Explain how the OTHER skills ({', '.join(other_skills)}) relate to different career paths.
+Suggest possible careers where these skills are useful.
+
+Leave one blank line between each paragraph.
+"""
 
     API_URL = "https://api-inference.huggingface.co/models/google/flan-t5-large"
 
@@ -97,7 +113,7 @@ def recommend_career(skill1, type1, skill2, type2, skill3, type3, skill4, type4,
     payload = {
         "inputs": prompt,
         "parameters": {
-            "max_new_tokens": 120,
+            "max_new_tokens": 220,
             "temperature": 0.7
         }
     }
@@ -110,25 +126,23 @@ def recommend_career(skill1, type1, skill2, type2, skill3, type3, skill4, type4,
         if isinstance(result_json, list) and "generated_text" in result_json[0]:
             explanation = result_json[0]["generated_text"]
         else:
-            explanation = f"{predicted_career} is recommended because the provided skills align with the competencies required for this role."
+            explanation = f"{predicted_career} is recommended because the provided skills align with the requirements of this role."
 
     except Exception:
-        explanation = f"{predicted_career} is recommended because the provided skills align with the competencies required for this role."
+        explanation = f"{predicted_career} is recommended because the provided skills align with the requirements of this role."
 
     result = f"""
-    PREDICTED CAREER: {predicted_career}
+PREDICTED CAREER: {predicted_career}
 
-    Primary Skills Matched:
-    {', '.join(primary_matched) if primary_matched else "None"}
+Primary Skills Matched: {', '.join(primary_matched) if primary_matched else "None"}
 
-    Secondary Skills Matched:
-    {', '.join(secondary_matched) if secondary_matched else "None"}
+Secondary Skills Matched: {', '.join(secondary_matched) if secondary_matched else "None"}
 
-    Other Skills Entered:
-    {', '.join(other_skills) if other_skills else "None"}
+Other Skills Entered: {', '.join(other_skills) if other_skills else "None"}
 
-    Explanation:
-    {explanation}
-    """
+Explanation:
+
+{explanation}
+"""
 
     return result
