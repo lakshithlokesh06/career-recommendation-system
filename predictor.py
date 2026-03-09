@@ -1,17 +1,14 @@
 import pandas as pd
 import joblib
 import streamlit as st
-from openai import OpenAI
+from groq import Groq
 
-# Load trained model and vectorizer
 model = joblib.load("model.pkl")
 vectorizer = joblib.load("vectorizer.pkl")
 
-# Load dataset
 data = pd.read_csv("career_dataset.csv")
 
-# OpenAI client
-client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
 
 def recommend_career(skill1, type1, skill2, type2, skill3, type3, skill4, type4, skill5, type5):
@@ -80,41 +77,36 @@ def recommend_career(skill1, type1, skill2, type2, skill3, type3, skill4, type4,
     prompt = f"""
 You are an AI career advisor.
 
-A student has entered the following skills:
+Skills entered:
 {', '.join(student_skills)}
 
 Predicted career: {predicted_career}
 
-Primary matched skills: {', '.join(primary_matched)}
-Secondary matched skills: {', '.join(secondary_matched)}
+Primary skills: {', '.join(primary_matched)}
+Secondary skills: {', '.join(secondary_matched)}
 Other skills: {', '.join(other_skills)}
 
-Write EXACTLY THREE paragraphs.
+Write EXACTLY three paragraphs.
 
-Paragraph 1 - PRIMARY SKILLS:
-Explain how the primary skills help in the career {predicted_career}.
+Paragraph 1: Explain why the primary skills match the career {predicted_career}.
 
-Paragraph 2 - SECONDARY SKILLS:
-Explain how the secondary skills support this career and mention careers where these skills are useful.
+Paragraph 2: Explain how the secondary skills support this career and mention related career paths.
 
-Paragraph 3 - OTHER SKILLS:
-Explain how the other skills relate to different career paths and suggest possible careers where these skills are useful.
+Paragraph 3: Explain how the other skills relate to different careers and suggest those careers.
 
-Each paragraph should contain 3–4 sentences.
 Leave one blank line between paragraphs.
 """
 
-    response = client.chat.completions.create(
-        model="gpt-4o",
+    chat = client.chat.completions.create(
+        model="llama3-8b-8192",
         messages=[
-            {"role": "system", "content": "You are an AI career advisor."},
+            {"role": "system", "content": "You are an expert career advisor."},
             {"role": "user", "content": prompt}
         ],
-        temperature=0.7,
-        max_tokens=300
+        temperature=0.7
     )
 
-    explanation = response.choices[0].message.content
+    explanation = chat.choices[0].message.content
 
     result = f"""
 PREDICTED CAREER: {predicted_career}
