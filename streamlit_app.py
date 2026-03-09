@@ -36,5 +36,6 @@ if st.button("Predict Career"):
         skill5, type5
     )
 
-    st.success("Prediction Result")
-    st.write(result)
+    st.subheader("🎯 Career Recommendation")
+    st.success(result)
+    st.markdown("---")
