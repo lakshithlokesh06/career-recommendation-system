@@ -3,11 +3,14 @@ import joblib
 import streamlit as st
 from groq import Groq
 
+# Load trained model and vectorizer
 model = joblib.load("model.pkl")
 vectorizer = joblib.load("vectorizer.pkl")
 
+# Load dataset
 data = pd.read_csv("career_dataset.csv")
 
+# Groq client
 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
 
@@ -77,7 +80,7 @@ def recommend_career(skill1, type1, skill2, type2, skill3, type3, skill4, type4,
     prompt = f"""
 You are an AI career advisor.
 
-Skills entered:
+A student entered these skills:
 {', '.join(student_skills)}
 
 Predicted career: {predicted_career}
@@ -88,22 +91,32 @@ Other skills: {', '.join(other_skills)}
 
 Write EXACTLY three paragraphs.
 
-Paragraph 1: Explain why the primary skills match the career {predicted_career}.
+Paragraph 1:
+Explain how the primary skills support the career {predicted_career}.
 
-Paragraph 2: Explain how the secondary skills support this career and mention related career paths.
+Paragraph 2:
+Explain how the secondary skills help in this career and mention related career paths.
 
-Paragraph 3: Explain how the other skills relate to different careers and suggest those careers.
+Paragraph 3:
+Explain how the other skills relate to different careers and suggest those careers.
 
 Leave one blank line between paragraphs.
 """
 
     chat = client.chat.completions.create(
-        model="llama3-8b-8192",
+        model="llama3-70b-8192",
         messages=[
-            {"role": "system", "content": "You are an expert career advisor."},
-            {"role": "user", "content": prompt}
+            {
+                "role": "system",
+                "content": "You are an expert AI career advisor who explains career recommendations clearly."
+            },
+            {
+                "role": "user",
+                "content": prompt
+            }
         ],
-        temperature=0.7
+        temperature=0.4,
+        max_tokens=500
     )
 
     explanation = chat.choices[0].message.content
