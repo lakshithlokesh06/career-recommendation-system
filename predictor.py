@@ -66,7 +66,7 @@ def recommend_career(skill1, type1, skill2, type2, skill3, type3, skill4, type4,
         skill5.lower().strip()
     ]
 
-    primary_matched = [s for s in student_skills if s in primary_list]
+        primary_matched = [s for s in student_skills if s in primary_list]
     secondary_matched = [s for s in student_skills if s in secondary_list]
 
     other_skills = [
@@ -74,32 +74,30 @@ def recommend_career(skill1, type1, skill2, type2, skill3, type3, skill4, type4,
         if s not in primary_list and s not in secondary_list
     ]
 
-    # -------- AI PROMPT --------
-
-prompt = f"""
+    prompt = f"""
 You are an AI career advisor.
 
-A student entered these skills:
+A student has entered the following skills:
 {', '.join(student_skills)}
 
 Predicted career: {predicted_career}
 
-Primary skills: {', '.join(primary_matched)}
-Secondary skills: {', '.join(secondary_matched)}
+Primary matched skills: {', '.join(primary_matched)}
+Secondary matched skills: {', '.join(secondary_matched)}
 Other skills: {', '.join(other_skills)}
 
-Write THREE separate paragraphs.
+Write EXACTLY THREE paragraphs.
 
-Paragraph 1:
-Explain how the PRIMARY skills make the student suitable for the career {predicted_career}.
+Paragraph 1 - PRIMARY SKILLS:
+Explain how the primary skills help in the career {predicted_career}.
 
-Paragraph 2:
-Explain how the SECONDARY skills support this career and mention careers where these skills are useful.
+Paragraph 2 - SECONDARY SKILLS:
+Explain how the secondary skills support this career and mention careers where these skills are useful.
 
-Paragraph 3:
-Explain how the OTHER skills relate to different career paths and suggest possible careers for those skills.
+Paragraph 3 - OTHER SKILLS:
+Explain how the other skills relate to different career paths and suggest possible careers where these skills are useful.
 
-Each paragraph must contain 3–4 sentences.
+Each paragraph should contain 3–4 sentences.
 Leave one blank line between paragraphs.
 """
 
@@ -112,7 +110,7 @@ Leave one blank line between paragraphs.
     payload = {
         "inputs": prompt,
         "parameters": {
-            "max_new_tokens": 300,
+            "max_new_tokens": 320,
             "temperature": 0.8
         }
     }
@@ -125,10 +123,10 @@ Leave one blank line between paragraphs.
         if isinstance(result_json, list) and "generated_text" in result_json[0]:
             explanation = result_json[0]["generated_text"]
         else:
-            explanation = f"{predicted_career} is recommended because the provided skills align with the requirements of this role."
+            explanation = "AI explanation could not be generated."
 
     except Exception:
-        explanation = f"{predicted_career} is recommended because the provided skills align with the requirements of this role."
+        explanation = "AI explanation service temporarily unavailable."
 
     result = f"""
 PREDICTED CAREER: {predicted_career}
