@@ -2,5 +2,4 @@ streamlit
 pandas
 scikit-learn
 joblib
-requests
-huggingface_hub
+openai
