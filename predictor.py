@@ -76,32 +76,31 @@ def recommend_career(skill1, type1, skill2, type2, skill3, type3, skill4, type4,
 
     # -------- AI PROMPT --------
 
-    prompt = f"""
+prompt = f"""
 You are an AI career advisor.
 
-A student entered the following skills:
+A student entered these skills:
 {', '.join(student_skills)}
 
-The predicted career is: {predicted_career}
+Predicted career: {predicted_career}
 
-Primary matched skills: {', '.join(primary_matched)}
-Secondary matched skills: {', '.join(secondary_matched)}
+Primary skills: {', '.join(primary_matched)}
+Secondary skills: {', '.join(secondary_matched)}
 Other skills: {', '.join(other_skills)}
 
-Write three short paragraphs:
+Write THREE separate paragraphs.
 
 Paragraph 1:
-Explain why the PRIMARY skills ({', '.join(primary_matched)}) strongly match the career {predicted_career}.
+Explain how the PRIMARY skills make the student suitable for the career {predicted_career}.
 
 Paragraph 2:
-Explain how the SECONDARY skills ({', '.join(secondary_matched)}) support this career.
-Also suggest which career paths commonly use these skills.
+Explain how the SECONDARY skills support this career and mention careers where these skills are useful.
 
 Paragraph 3:
-Explain how the OTHER skills ({', '.join(other_skills)}) relate to different career paths.
-Suggest possible careers where these skills are useful.
+Explain how the OTHER skills relate to different career paths and suggest possible careers for those skills.
 
-Leave one blank line between each paragraph.
+Each paragraph must contain 3–4 sentences.
+Leave one blank line between paragraphs.
 """
 
     API_URL = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2"
@@ -113,8 +112,8 @@ Leave one blank line between each paragraph.
     payload = {
         "inputs": prompt,
         "parameters": {
-            "max_new_tokens": 220,
-            "temperature": 0.7
+            "max_new_tokens": 300,
+            "temperature": 0.8
         }
     }
 
