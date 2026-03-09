@@ -1,0 +1,101 @@
+﻿skill1,skill2,skill3,skill4,skill5,primary_skills,secondary_skills,career_path
+html,css,javascript,react,git,"html, css, javascript","react, git",Web Developer
+sql,statistics,data visualization,python,excel,"sql, statistics, data visualization","python, excel",Data Analyst
+python,machine learning,feature engineering,statistics,model training,"python, machine learning, feature engineering","statistics, model training",Machine Learning Engineer
+network security,penetration testing,threat analysis,linux,firewall,"network security, penetration testing, threat analysis","linux, firewall",Cyber Security Analyst
+cloud services,infrastructure management,containerization,docker,kubernetes,"cloud services, infrastructure management, containerization","docker, kubernetes",Cloud Engineer
+business analysis,requirements gathering,stakeholder communication,documentation,data visualization,"business analysis, requirements gathering, stakeholder communication","documentation, data visualization",Business Analyst
+database optimization,backup and recovery,query tuning,sql,performance monitoring,"database optimization, backup and recovery, query tuning","sql, performance monitoring",Database Administrator
+data structures,algorithms,object oriented programming,java,git,"data structures, algorithms, object oriented programming","java, git",Software Engineer
+deep learning,neural networks,computer vision,python,tensorflow,"deep learning, neural networks, computer vision","python, tensorflow",AI Engineer
+user research,wireframing,usability testing,figma,prototyping,"user research, wireframing, usability testing","figma, prototyping",UI/UX Designer
+html,css,javascript,bootstrap,git,"html, css, javascript","bootstrap, git",Web Developer
+sql,python,statistics,data visualization,excel,"sql, statistics, data visualization","python, excel",Data Analyst
+python,machine learning,statistics,deep learning,tensorflow,"python, machine learning, deep learning","statistics, tensorflow",AI Engineer
+network security,linux,threat analysis,firewall,penetration testing,"network security, penetration testing, threat analysis","linux, firewall",Cyber Security Analyst
+cloud services,docker,kubernetes,infrastructure management,linux,"cloud services, infrastructure management, containerization","docker, kubernetes",Cloud Engineer
+business analysis,stakeholder communication,requirements gathering,documentation,sql,"business analysis, requirements gathering, stakeholder communication","documentation, sql",Business Analyst
+database optimization,sql,query tuning,backup and recovery,performance monitoring,"database optimization, query tuning, backup and recovery","sql, performance monitoring",Database Administrator
+data structures,algorithms,java,object oriented programming,git,"data structures, algorithms, object oriented programming","java, git",Software Engineer
+user research,wireframing,figma,usability testing,prototyping,"user research, wireframing, usability testing","figma, prototyping",UI/UX Designer
+python,machine learning,feature engineering,model training,statistics,"python, machine learning, feature engineering","statistics, model training",Machine Learning Engineer
+html,css,javascript,react,bootstrap,"html, css, javascript","react, bootstrap",Web Developer
+html,css,javascript,git,ui design,"html, css, javascript","git, ui design",Web Developer
+sql,statistics,data visualization,python,power bi,"sql, statistics, data visualization","python, power bi",Data Analyst
+sql,statistics,excel,python,tableau,"sql, statistics, data visualization","excel, tableau",Data Analyst
+python,machine learning,feature engineering,statistics,tensorflow,"python, machine learning, feature engineering","statistics, tensorflow",Machine Learning Engineer
+python,machine learning,model training,deep learning,pytorch,"python, machine learning, deep learning","model training, pytorch",Machine Learning Engineer
+network security,threat analysis,penetration testing,firewall,linux,"network security, penetration testing, threat analysis","firewall, linux",Cyber Security Analyst
+network security,ethical hacking,threat analysis,linux,firewall,"network security, ethical hacking, threat analysis","linux, firewall",Cyber Security Analyst
+cloud services,infrastructure management,containerization,docker,kubernetes,"cloud services, infrastructure management, containerization","docker, kubernetes",Cloud Engineer
+cloud services,docker,kubernetes,linux,infrastructure management,"cloud services, infrastructure management, containerization","docker, linux",Cloud Engineer
+business analysis,stakeholder communication,requirements gathering,documentation,excel,"business analysis, requirements gathering, stakeholder communication","documentation, excel",Business Analyst
+business analysis,sql,stakeholder communication,requirements gathering,reporting,"business analysis, requirements gathering, stakeholder communication","sql, reporting",Business Analyst
+database optimization,sql,query tuning,backup and recovery,monitoring,"database optimization, query tuning, backup and recovery","sql, monitoring",Database Administrator
+database optimization,sql,backup and recovery,performance tuning,query tuning,"database optimization, backup and recovery, query tuning","sql, performance tuning",Database Administrator
+data structures,algorithms,object oriented programming,java,git,"data structures, algorithms, object oriented programming","java, git",Software Engineer
+data structures,algorithms,python,object oriented programming,git,"data structures, algorithms, object oriented programming","python, git",Software Engineer
+deep learning,neural networks,computer vision,python,tensorflow,"deep learning, neural networks, computer vision","python, tensorflow",AI Engineer
+deep learning,neural networks,python,pytorch,computer vision,"deep learning, neural networks, computer vision","python, pytorch",AI Engineer
+user research,wireframing,usability testing,figma,prototyping,"user research, wireframing, usability testing","figma, prototyping",UI/UX Designer
+user research,usability testing,prototyping,adobe xd,wireframing,"user research, wireframing, usability testing","prototyping, adobe xd",UI/UX Designer
+html,css,javascript,angular,git,"html, css, javascript","angular, git",Web Developer
+html,css,javascript,vue,bootstrap,"html, css, javascript","vue, bootstrap",Web Developer
+sql,statistics,python,data visualization,excel,"sql, statistics, data visualization","python, excel",Data Analyst
+sql,python,statistics,tableau,excel,"sql, statistics, data visualization","tableau, excel",Data Analyst
+python,machine learning,feature engineering,statistics,model training,"python, machine learning, feature engineering","statistics, model training",Machine Learning Engineer
+python,machine learning,deep learning,tensorflow,statistics,"python, machine learning, deep learning","tensorflow, statistics",Machine Learning Engineer
+network security,threat analysis,penetration testing,linux,firewall,"network security, penetration testing, threat analysis","linux, firewall",Cyber Security Analyst
+network security,ethical hacking,threat analysis,firewall,linux,"network security, ethical hacking, threat analysis","firewall, linux",Cyber Security Analyst
+cloud services,infrastructure management,containerization,docker,linux,"cloud services, infrastructure management, containerization","docker, linux",Cloud Engineer
+cloud services,docker,kubernetes,infrastructure management,monitoring,"cloud services, infrastructure management, containerization","docker, monitoring",Cloud Engineer
+business analysis,stakeholder communication,requirements gathering,documentation,sql,"business analysis, requirements gathering, stakeholder communication","documentation, sql",Business Analyst
+business analysis,reporting,stakeholder communication,requirements gathering,excel,"business analysis, requirements gathering, stakeholder communication","reporting, excel",Business Analyst
+database optimization,query tuning,sql,backup and recovery,monitoring,"database optimization, query tuning, backup and recovery","sql, monitoring",Database Administrator
+database optimization,backup and recovery,query tuning,sql,performance tuning,"database optimization, backup and recovery, query tuning","sql, performance tuning",Database Administrator
+data structures,algorithms,object oriented programming,python,git,"data structures, algorithms, object oriented programming","python, git",Software Engineer
+data structures,algorithms,java,object oriented programming,git,"data structures, algorithms, object oriented programming","java, git",Software Engineer
+deep learning,neural networks,computer vision,python,pytorch,"deep learning, neural networks, computer vision","python, pytorch",AI Engineer
+deep learning,neural networks,tensorflow,python,computer vision,"deep learning, neural networks, computer vision","tensorflow, python",AI Engineer
+user research,wireframing,figma,usability testing,prototyping,"user research, wireframing, usability testing","figma, prototyping",UI/UX Designer
+user research,usability testing,adobe xd,wireframing,prototyping,"user research, wireframing, usability testing","adobe xd, prototyping",UI/UX Designer
+html,css,javascript,react,git,"html, css, javascript","react, git",Web Developer
+sql,statistics,data visualization,python,excel,"sql, statistics, data visualization","python, excel",Data Analyst
+cloud services,docker,kubernetes,linux,infrastructure management,"cloud services, infrastructure management, containerization","docker, linux",Cloud Engineer
+user research,wireframing,figma,usability testing,prototyping,"user research, wireframing, usability testing","figma, prototyping",UI/UX Designer
+python,machine learning,feature engineering,statistics,tensorflow,"python, machine learning, feature engineering","statistics, tensorflow",Machine Learning Engineer
+network security,penetration testing,threat analysis,firewall,linux,"network security, penetration testing, threat analysis","firewall, linux",Cyber Security Analyst
+business analysis,stakeholder communication,requirements gathering,documentation,reporting,"business analysis, requirements gathering, stakeholder communication","documentation, reporting",Business Analyst
+data structures,algorithms,object oriented programming,java,git,"data structures, algorithms, object oriented programming","java, git",Software Engineer
+deep learning,neural networks,computer vision,python,pytorch,"deep learning, neural networks, computer vision","python, pytorch",AI Engineer
+database optimization,sql,query tuning,backup and recovery,monitoring,"database optimization, query tuning, backup and recovery","sql, monitoring",Database Administrator
+html,css,javascript,angular,bootstrap,"html, css, javascript","angular, bootstrap",Web Developer
+python,machine learning,deep learning,tensorflow,statistics,"python, machine learning, deep learning","tensorflow, statistics",Machine Learning Engineer
+sql,python,statistics,tableau,excel,"sql, statistics, data visualization","tableau, excel",Data Analyst
+network security,ethical hacking,threat analysis,firewall,linux,"network security, ethical hacking, threat analysis","firewall, linux",Cyber Security Analyst
+cloud services,infrastructure management,containerization,docker,kubernetes,"cloud services, infrastructure management, containerization","docker, kubernetes",Cloud Engineer
+user research,usability testing,adobe xd,wireframing,prototyping,"user research, wireframing, usability testing","adobe xd, prototyping",UI/UX Designer
+data structures,algorithms,python,object oriented programming,git,"data structures, algorithms, object oriented programming","python, git",Software Engineer
+deep learning,neural networks,computer vision,python,tensorflow,"deep learning, neural networks, computer vision","python, tensorflow",AI Engineer
+business analysis,requirements gathering,stakeholder communication,sql,excel,"business analysis, requirements gathering, stakeholder communication","sql, excel",Business Analyst
+database optimization,backup and recovery,query tuning,sql,performance tuning,"database optimization, backup and recovery, query tuning","sql, performance tuning",Database Administrator
+html,css,javascript,react,bootstrap,"html, css, javascript","react, bootstrap",Web Developer
+html,css,javascript,git,angular,"html, css, javascript","git, angular",Web Developer
+sql,statistics,python,data visualization,power bi,"sql, statistics, data visualization","python, power bi",Data Analyst
+sql,statistics,tableau,python,excel,"sql, statistics, data visualization","tableau, excel",Data Analyst
+python,machine learning,feature engineering,statistics,tensorflow,"python, machine learning, feature engineering","statistics, tensorflow",Machine Learning Engineer
+python,machine learning,deep learning,pytorch,statistics,"python, machine learning, deep learning","pytorch, statistics",Machine Learning Engineer
+network security,threat analysis,penetration testing,firewall,linux,"network security, penetration testing, threat analysis","firewall, linux",Cyber Security Analyst
+network security,ethical hacking,firewall,linux,threat analysis,"network security, ethical hacking, threat analysis","firewall, linux",Cyber Security Analyst
+cloud services,infrastructure management,containerization,docker,kubernetes,"cloud services, infrastructure management, containerization","docker, kubernetes",Cloud Engineer
+cloud services,docker,linux,kubernetes,infrastructure management,"cloud services, infrastructure management, containerization","docker, linux",Cloud Engineer
+business analysis,stakeholder communication,requirements gathering,documentation,reporting,"business analysis, requirements gathering, stakeholder communication","documentation, reporting",Business Analyst
+business analysis,requirements gathering,stakeholder communication,sql,excel,"business analysis, requirements gathering, stakeholder communication","sql, excel",Business Analyst
+database optimization,query tuning,backup and recovery,sql,monitoring,"database optimization, query tuning, backup and recovery","sql, monitoring",Database Administrator
+database optimization,backup and recovery,performance tuning,query tuning,sql,"database optimization, backup and recovery, query tuning","performance tuning, sql",Database Administrator
+data structures,algorithms,object oriented programming,java,git,"data structures, algorithms, object oriented programming","java, git",Software Engineer
+data structures,algorithms,python,object oriented programming,git,"data structures, algorithms, object oriented programming","python, git",Software Engineer
+deep learning,neural networks,computer vision,python,tensorflow,"deep learning, neural networks, computer vision","python, tensorflow",AI Engineer
+deep learning,neural networks,python,pytorch,computer vision,"deep learning, neural networks, computer vision","python, pytorch",AI Engineer
+user research,wireframing,figma,usability testing,prototyping,"user research, wireframing, usability testing","figma, prototyping",UI/UX Designer
+user research,usability testing,adobe xd,prototyping,wireframing,"user research, wireframing, usability testing","adobe xd, prototyping",UI/UX Designer
