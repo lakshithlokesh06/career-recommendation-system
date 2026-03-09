@@ -9,6 +9,8 @@ vectorizer = joblib.load("vectorizer.pkl")
 
 # Load dataset
 data = pd.read_csv("career_dataset.csv")
+
+# OpenAI client
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 
@@ -67,8 +69,8 @@ def recommend_career(skill1, type1, skill2, type2, skill3, type3, skill4, type4,
         skill5.lower().strip()
     ]
 
-    primary_matched = [s for s in student_skills if s in primary_list]
-    secondary_matched = [s for s in student_skills if s in secondary_list]
+    primary_matched = list(set([s for s in student_skills if s in primary_list]))
+    secondary_matched = list(set([s for s in student_skills if s in secondary_list]))
 
     other_skills = [
         s for s in student_skills
@@ -102,17 +104,17 @@ Each paragraph should contain 3–4 sentences.
 Leave one blank line between paragraphs.
 """
 
-response = client.chat.completions.create(
-    model="gpt-4o",
-    messages=[
-        {"role": "system", "content": "You are an AI career advisor."},
-        {"role": "user", "content": prompt}
-    ],
-    temperature=0.7,
-    max_tokens=300
-)
+    response = client.chat.completions.create(
+        model="gpt-4o",
+        messages=[
+            {"role": "system", "content": "You are an AI career advisor."},
+            {"role": "user", "content": prompt}
+        ],
+        temperature=0.7,
+        max_tokens=300
+    )
 
-explanation = response.choices[0].message.content
+    explanation = response.choices[0].message.content
 
     result = f"""
 PREDICTED CAREER: {predicted_career}
