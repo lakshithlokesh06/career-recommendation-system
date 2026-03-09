@@ -64,19 +64,14 @@ def recommend_career(skill1, type1, skill2, type2, skill3, type3, skill4, type4,
     primary_matched = [s for s in student_skills if s in primary_list]
     secondary_matched = [s for s in student_skills if s in secondary_list]
 
-    url = "http://localhost:11434/api/generate"
-
-    prompt = f"""
-Explain why {predicted_career} is suitable for someone with primary skills
-{', '.join(primary_matched)} and secondary skills {', '.join(secondary_matched)}.
-Also explain why learning the remaining required skills will help in this career.
-Write one professional paragraph.
+    explanation = f"""
+The predicted career path is {predicted_career} because the provided skills
+match the competencies required for this role. Primary skills such as
+{', '.join(primary_matched)} strongly align with the key responsibilities of
+this career. Secondary skills like {', '.join(secondary_matched)} further
+support the candidate's suitability. Developing additional related skills
+will help improve expertise and career growth in this domain.
 """
-
-    explanation = requests.post(
-        url,
-        json={"model": "llama3:8b", "prompt": prompt, "stream": False}
-    ).json()["response"]
 
     result = f"""
 PREDICTED CAREER: {predicted_career}
