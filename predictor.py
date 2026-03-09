@@ -102,7 +102,7 @@ Each paragraph should contain 3–4 sentences.
 Leave one blank line between paragraphs.
 """
 
-    response = client.chat.completions.create(
+response = client.chat.completions.create(
     model="gpt-4o",
     messages=[
         {"role": "system", "content": "You are an AI career advisor."},
