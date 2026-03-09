@@ -101,12 +101,20 @@ Explain in one professional paragraph why this career suits the user and how the
 
     response = requests.post(API_URL, headers=headers, json=payload)
 
+try:
     result_json = response.json()
 
-    if isinstance(result_json, list):
+    if isinstance(result_json, list) and "generated_text" in result_json[0]:
         explanation = result_json[0]["generated_text"]
+
+    elif isinstance(result_json, dict) and "error" in result_json:
+        explanation = "LLM explanation temporarily unavailable. Showing default explanation."
+
     else:
         explanation = "Explanation could not be generated."
+
+except Exception:
+    explanation = "Explanation service error. Please try again."
 
     result = f"""
 PREDICTED CAREER: {predicted_career}
