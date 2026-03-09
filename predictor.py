@@ -66,28 +66,58 @@ def recommend_career(skill1, type1, skill2, type2, skill3, type3, skill4, type4,
     ]
 
     primary_matched = [s for s in student_skills if s in primary_list]
-    secondary_matched = [s for s in student_skills if s in secondary_list]
+secondary_matched = [s for s in student_skills if s in secondary_list]
 
-    other_skills = [
-        s for s in student_skills
-        if s not in primary_list and s not in secondary_list
-    ]
+other_skills = [
+    s for s in student_skills
+    if s not in primary_list and s not in secondary_list
+]
 
-    explanation = f"""
-The recommended career path is {predicted_career} because the provided skills
-align with the competencies required for this role.
+# ---- AI PROMPT ----
+prompt = f"""
+A student entered the following skills: {', '.join(student_skills)}.
 
-Primary skills such as {', '.join(primary_matched) if primary_matched else 'none'}
-strongly match the core requirements of this career.
+Predicted career: {predicted_career}
 
-Secondary skills like {', '.join(secondary_matched) if secondary_matched else 'none'}
-provide additional support for this role.
+Primary matched skills: {', '.join(primary_matched)}
+Secondary matched skills: {', '.join(secondary_matched)}
+Other skills: {', '.join(other_skills)}
 
-Other entered skills ({', '.join(other_skills) if other_skills else 'none'}) may relate
-to other career paths but are not primary requirements for the predicted career.
+Explain in one professional paragraph why this career suits the student
+based on the skills provided.
 """
 
-    result = f"""
+# ---- HUGGINGFACE API CALL ----
+API_URL = "https://api-inference.huggingface.co/models/google/flan-t5-large"
+
+headers = {
+    "Authorization": f"Bearer {st.secrets['HF_TOKEN']}"
+}
+
+payload = {
+    "inputs": prompt,
+    "parameters": {
+        "max_new_tokens": 120,
+        "temperature": 0.7
+    }
+}
+
+response = requests.post(API_URL, headers=headers, json=payload)
+
+try:
+    result_json = response.json()
+
+    if isinstance(result_json, list) and "generated_text" in result_json[0]:
+        explanation = result_json[0]["generated_text"]
+
+    else:
+        explanation = f"{predicted_career} is recommended because the provided skills align with the typical competencies required for this role."
+
+except Exception:
+    explanation = f"{predicted_career} is recommended because the provided skills align with the typical competencies required for this role."
+
+# ---- FINAL RESULT ----
+result = f"""
 PREDICTED CAREER: {predicted_career}
 
 Primary Skills Matched:
@@ -103,4 +133,4 @@ Explanation:
 {explanation}
 """
 
-    return result
+return result
