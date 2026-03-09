@@ -1,5 +1,11 @@
 import streamlit as st
-from predictor import recommend_career
+
+@st.cache_resource
+def load_predictor():
+    from predictor import recommend_career
+    return recommend_career
+
+recommend_career = load_predictor()
 
 st.title("AI Career Recommendation System")
 
@@ -30,5 +36,5 @@ if st.button("Predict Career"):
         skill5, type5
     )
 
+    st.success("Prediction Result")
     st.write(result)
-
