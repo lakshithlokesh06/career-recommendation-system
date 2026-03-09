@@ -1,7 +1,6 @@
 import pandas as pd
 import joblib
 import streamlit as st
-import requests
 
 # Load trained model and vectorizer
 model = joblib.load("model.pkl")
@@ -74,47 +73,19 @@ def recommend_career(skill1, type1, skill2, type2, skill3, type3, skill4, type4,
         if s not in primary_list and s not in secondary_list
     ]
 
-    prompt = f"""
-A user entered the following skills: {', '.join(student_skills)}.
+    explanation = f"""
+The recommended career path is {predicted_career} because the provided skills
+align with the competencies required for this role.
 
-The predicted career path is: {predicted_career}.
+Primary skills such as {', '.join(primary_matched) if primary_matched else 'none'}
+strongly match the core requirements of this career.
 
-Primary matched skills: {', '.join(primary_matched)}.
-Secondary matched skills: {', '.join(secondary_matched)}.
-Other skills entered: {', '.join(other_skills)}.
+Secondary skills like {', '.join(secondary_matched) if secondary_matched else 'none'}
+provide additional support for this role.
 
-Explain in one professional paragraph why this career suits the user and how the other skills may relate to different career paths.
+Other entered skills ({', '.join(other_skills) if other_skills else 'none'}) may relate
+to other career paths but are not primary requirements for the predicted career.
 """
-
-    API_URL = "https://api-inference.huggingface.co/models/HuggingFaceH4/zephyr-7b-beta"
-
-    headers = {
-        "Authorization": f"Bearer {st.secrets['HF_TOKEN']}"
-    }
-
-    payload = {
-        "inputs": prompt,
-        "parameters": {
-            "max_new_tokens": 150
-        }
-    }
-
-    response = requests.post(API_URL, headers=headers, json=payload)
-
-try:
-    result_json = response.json()
-
-    if isinstance(result_json, list) and "generated_text" in result_json[0]:
-        explanation = result_json[0]["generated_text"]
-
-    elif isinstance(result_json, dict) and "error" in result_json:
-        explanation = "LLM explanation temporarily unavailable. Showing default explanation."
-
-    else:
-        explanation = "Explanation could not be generated."
-
-except Exception:
-    explanation = "Explanation service error. Please try again."
 
     result = f"""
 PREDICTED CAREER: {predicted_career}
