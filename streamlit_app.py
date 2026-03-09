@@ -28,13 +28,15 @@ type5 = st.radio("Skill 5 Type", ["Primary","Secondary"])
 
 if st.button("Predict Career"):
 
-    result = recommend_career(
-        skill1, type1,
-        skill2, type2,
-        skill3, type3,
-        skill4, type4,
-        skill5, type5
-    )
+    with st.spinner("🔍 Analyzing skills and predicting career..."):
+
+        result = recommend_career(
+            skill1, type1,
+            skill2, type2,
+            skill3, type3,
+            skill4, type4,
+            skill5, type5
+        )
 
     st.subheader("🎯 Career Recommendation")
     st.success(result)
