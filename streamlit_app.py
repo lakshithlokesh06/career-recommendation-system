@@ -9,30 +9,27 @@ recommend_career = load_predictor()
 
 # ---------------- HEADER ----------------
 st.title("🚀 AI Career Recommendation System")
-st.markdown("Find your ideal career path using AI-driven skill analysis.")
+st.write("Find your ideal career path using AI-driven skill analysis.")
 
 st.markdown("---")
 
 # ---------------- INPUT SECTION ----------------
 st.subheader("🧠 Enter Your Skills")
-st.write("Select your strongest (Primary) and supporting (Secondary) skills.")
 
 skill_inputs = []
 
 for i in range(1, 6):
 
-    col1, col2 = st.columns([2,1])
+    st.markdown(f"### Skill {i}")
 
-    with col1:
-        skill = st.text_input(f"Skill {i}", key=f"skill{i}")
+    skill = st.text_input(f"Skill {i}", key=f"skill{i}")
 
-    with col2:
-        type_skill = st.radio(
-            f"Type",
-            ["Primary", "Secondary"],
-            horizontal=True,
-            key=f"type{i}"
-        )
+    type_skill = st.radio(
+        f"Type",
+        ["Primary", "Secondary"],
+        horizontal=True,
+        key=f"type{i}"
+    )
 
     skill_inputs.append((skill, type_skill))
 
@@ -57,22 +54,20 @@ if predict:
 
     st.subheader("🎯 Your Career Insights")
 
-    # Split output into sections
     sections = result.split("Explanation:")
 
     main_output = sections[0]
     explanation_output = sections[1] if len(sections) > 1 else ""
 
-    # ---------------- CAREER RESULT ----------------
+    # Career + XAI
     st.success(main_output)
 
     st.markdown("")
 
-    # ---------------- AI EXPLANATION ----------------
+    # AI Explanation
     st.info("🧠 AI Explanation")
     st.write(explanation_output)
 
     st.markdown("---")
 
-    # ---------------- FOOTER ----------------
     st.caption("Built using AI & Machine Learning")
