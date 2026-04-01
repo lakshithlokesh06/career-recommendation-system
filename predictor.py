@@ -74,6 +74,31 @@ def recommend_career(skill1, type1, skill2, type2, skill3, type3, skill4, type4,
         if s not in primary_list and s not in secondary_list
     ]
 
+    # -------------------- SHAP STYLE EXPLANATION --------------------
+
+    def generate_shap_text(primary_matched, secondary_matched, other_skills, career):
+        explanation = f"The prediction of {career} is influenced by the following skills:\n\n"
+
+        if primary_matched:
+            explanation += f"- {', '.join(primary_matched)} have a strong positive impact as they are core skills required for this role.\n"
+
+        if secondary_matched:
+            explanation += f"- {', '.join(secondary_matched)} provide moderate support and enhance the suitability for this career.\n"
+
+        if other_skills:
+            explanation += f"- {', '.join(other_skills)} have minimal impact as they are less directly related to this career path.\n"
+
+        return explanation
+
+    shap_explanation = generate_shap_text(
+        primary_matched,
+        secondary_matched,
+        other_skills,
+        predicted_career
+    )
+
+    # -------------------- LLM EXPLANATION --------------------
+
     prompt = f"""
 You are an AI career advisor.
 
@@ -108,6 +133,8 @@ Leave one blank line between paragraphs.
 
     explanation = chat.choices[0].message.content
 
+    # -------------------- FINAL OUTPUT --------------------
+
     result = f"""
 PREDICTED CAREER: {predicted_career}
 
@@ -116,6 +143,10 @@ Primary Skills Matched: {', '.join(primary_matched) if primary_matched else "Non
 Secondary Skills Matched: {', '.join(secondary_matched) if secondary_matched else "None"}
 
 Other Skills Entered: {', '.join(other_skills) if other_skills else "None"}
+
+📊 MODEL EXPLANATION (Explainable AI):
+
+{shap_explanation}
 
 Explanation:
 
