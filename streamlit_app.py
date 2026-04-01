@@ -20,6 +20,28 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# -------- BUTTON STYLE (CENTER + HOVER) --------
+st.markdown("""
+<style>
+div.stButton > button {
+    display: block;
+    margin: 0 auto;
+    padding: 12px 28px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #444;
+    background-color: #111827;
+    color: white;
+    transition: 0.3s;
+}
+
+div.stButton > button:hover {
+    background-color: #1f2937;
+    border: 1px solid #666;
+}
+</style>
+""", unsafe_allow_html=True)
+
 # ---------------- HERO SECTION ----------------
 if not st.session_state.started:
 
@@ -38,20 +60,15 @@ if not st.session_state.started:
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # Centered button
-    col1, col2, col3 = st.columns([1,2,1])
-    with col2:
-        if st.button("🔍 Get Started"):
-            st.session_state.started = True
-            st.rerun()
+    if st.button("🔍 Get Started"):
+        st.session_state.started = True
+        st.rerun()
 
     st.markdown("<br><br>", unsafe_allow_html=True)
-
     st.markdown("<hr style='border:1px solid #333;'>", unsafe_allow_html=True)
-
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # ---------------- FEATURES SECTION ----------------
+    # ---------------- FEATURES ----------------
     st.markdown("<h2 style='text-align: center;'>💡 Key Features</h2>", unsafe_allow_html=True)
 
     col1, col2 = st.columns(2)
@@ -144,6 +161,7 @@ else:
             elif shap_text != "" or "prediction of" in line.lower():
                 shap_text += line + "\n"
 
+        # -------- CARD 1 --------
         st.success(f"🎯 Predicted Career: {career}")
 
         st.markdown(f"""
@@ -156,11 +174,13 @@ else:
 
         st.markdown("---")
 
+        # -------- CARD 2 --------
         st.info("📊 Model Explanation (Explainable AI)")
         st.write(shap_text.strip())
 
         st.markdown("---")
 
+        # -------- CARD 3 --------
         st.subheader("🧠 AI Explanation")
         st.write(explanation_part)
 
