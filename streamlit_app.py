@@ -17,6 +17,34 @@ st.markdown("""
 .stApp {
     background: radial-gradient(circle at top, #1f2937, #020617);
 }
+
+/* Feature Cards */
+.feature-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 20px;
+    transition: 0.3s;
+    backdrop-filter: blur(10px);
+    height: 100%;
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+    border: 1px solid #4f46e5;
+    box-shadow: 0 8px 25px rgba(79,70,229,0.3);
+}
+
+.feature-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.feature-desc {
+    font-size: 14px;
+    color: #cbd5f5;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -38,7 +66,7 @@ if not st.session_state.started:
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # -------- PERFECT CENTER BUTTON --------
+    # -------- CENTER BUTTON --------
     st.markdown("""
     <style>
     div[data-testid="stButton"] {
@@ -70,28 +98,64 @@ if not st.session_state.started:
     st.markdown("<hr style='border:1px solid #333;'>", unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # ---------------- FEATURES ----------------
-    st.markdown("<h2 style='text-align: center;'>💡 Key Features</h2>", unsafe_allow_html=True)
+    # ---------------- UNIQUE FEATURES ----------------
+    st.markdown("<h2 style='text-align:center;'>🚀 What Makes This System Powerful</h2>", unsafe_allow_html=True)
 
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
 
     with col1:
-        st.markdown("### ✨ Smart Skill Matching")
-        st.markdown("Accurately matches your skills with career paths.")
-
-        st.markdown("<br>", unsafe_allow_html=True)
-
-        st.markdown("### 🎯 Personalized Recommendations")
-        st.markdown("Gives tailored career suggestions based on your input.")
+        st.markdown("""
+        <div class="feature-box">
+            <div class="feature-title">🧠 Smart Skill Analysis</div>
+            <div class="feature-desc">
+            Weighs primary and secondary skills intelligently for better prediction.
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
 
     with col2:
-        st.markdown("### 📊 AI-Based Prediction")
-        st.markdown("Uses intelligent models for accurate predictions.")
+        st.markdown("""
+        <div class="feature-box">
+            <div class="feature-title">⚙️ ML Prediction Engine</div>
+            <div class="feature-desc">
+            Uses trained ML model to identify the most suitable career path.
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
 
-        st.markdown("<br>", unsafe_allow_html=True)
+    with col3:
+        st.markdown("""
+        <div class="feature-box">
+            <div class="feature-title">📊 Explainable AI</div>
+            <div class="feature-desc">
+            Shows how each skill impacts the prediction (High, Medium, Low).
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
 
-        st.markdown("### ⚡ Instant Results")
-        st.markdown("Get career insights instantly.")
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    col4, col5 = st.columns(2)
+
+    with col4:
+        st.markdown("""
+        <div class="feature-box">
+            <div class="feature-title">🤖 LLM Explanation</div>
+            <div class="feature-desc">
+            Generates human-like explanations using Groq-powered AI.
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col5:
+        st.markdown("""
+        <div class="feature-box">
+            <div class="feature-title">⚡ Instant Insights</div>
+            <div class="feature-desc">
+            Get results instantly with detailed insights.
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
 
 # ---------------- INPUT + OUTPUT ----------------
 else:
