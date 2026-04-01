@@ -7,14 +7,38 @@ def load_predictor():
 
 recommend_career = load_predictor()
 
-# ---------------- HEADER ----------------
-st.title("🚀 AI Career Recommendation System")
-st.write("Find your ideal career path using AI-driven skill analysis.")
+# ---------------- HERO SECTION ----------------
+st.title("🚀 Discover Your Ideal Career Path with AI")
+
+st.markdown("""
+Find the best career based on your skills using intelligent analysis.  
+Enter your skills and get personalized career recommendations instantly.
+
+💡 Example: Python, SQL, Machine Learning, Power BI, Statistics
+""")
+
+st.markdown("")
+
+st.button("🔍 Get Started")
+
+st.markdown("---")
+
+# ---------------- FEATURES SECTION ----------------
+st.subheader("💡 Key Features")
+
+st.markdown("""
+✨ Smart Skill Matching  
+📊 AI-Based Career Prediction  
+🎯 Personalized Recommendations  
+⚡ Instant Results  
+""")
 
 st.markdown("---")
 
 # ---------------- INPUT SECTION ----------------
-st.subheader("🧠 Enter Your Skills")
+st.subheader("🧠 Tell Us About Your Skills")
+
+st.write("Select your strongest (Primary) and supporting (Secondary) skills to get accurate career recommendations.")
 
 skill_inputs = []
 
@@ -25,7 +49,7 @@ for i in range(1, 6):
     skill = st.text_input(f"Skill {i}", key=f"skill{i}")
 
     type_skill = st.radio(
-        f"Type",
+        "Type",
         ["Primary", "Secondary"],
         horizontal=True,
         key=f"type{i}"
@@ -51,23 +75,63 @@ if predict:
         )
 
     st.markdown("---")
-
     st.subheader("🎯 Your Career Insights")
 
+    # -------- SPLIT OUTPUT --------
     sections = result.split("Explanation:")
 
-    main_output = sections[0]
-    explanation_output = sections[1] if len(sections) > 1 else ""
+    main_part = sections[0]
+    explanation_part = sections[1] if len(sections) > 1 else ""
 
-    # Career + XAI
-    st.success(main_output)
+    # Extract lines
+    lines = main_part.split("\n")
+
+    career = ""
+    primary = ""
+    secondary = ""
+    other = ""
+    shap_text = ""
+
+    for line in lines:
+        if "PREDICTED CAREER" in line:
+            career = line.replace("PREDICTED CAREER:", "").strip()
+        elif "Primary Skills Matched" in line:
+            primary = line.split(":")[1].strip()
+        elif "Secondary Skills Matched" in line:
+            secondary = line.split(":")[1].strip()
+        elif "Other Skills Entered" in line:
+            other = line.split(":")[1].strip()
+        elif "MODEL EXPLANATION" in line:
+            shap_text += line + "\n"
+        elif shap_text != "":
+            shap_text += line + "\n"
+
+    # -------- CARD 1: CAREER --------
+    st.success(f"🎯 Predicted Career: {career}")
 
     st.markdown("")
 
-    # AI Explanation
-    st.info("🧠 AI Explanation")
-    st.write(explanation_output)
+    st.markdown(f"""
+**Primary Skills:** {primary}  
+
+**Secondary Skills:** {secondary}  
+
+**Other Skills:** {other}
+""")
 
     st.markdown("---")
 
+    # -------- CARD 2: MODEL EXPLANATION --------
+    st.info("📊 Model Explanation (Explainable AI)")
+    st.write(shap_text)
+
+    st.markdown("---")
+
+    # -------- CARD 3: AI EXPLANATION --------
+    st.subheader("🧠 AI Explanation")
+    st.write(explanation_part)
+
+    st.markdown("---")
+
+    # -------- FOOTER --------
     st.caption("Built using AI & Machine Learning")
