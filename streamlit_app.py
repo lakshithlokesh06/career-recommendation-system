@@ -20,28 +20,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# -------- BUTTON STYLE (CENTER + HOVER) --------
-st.markdown("""
-<style>
-div.stButton > button {
-    display: block;
-    margin: 0 auto;
-    padding: 12px 28px;
-    font-size: 16px;
-    border-radius: 10px;
-    border: 1px solid #444;
-    background-color: #111827;
-    color: white;
-    transition: 0.3s;
-}
-
-div.stButton > button:hover {
-    background-color: #1f2937;
-    border: 1px solid #666;
-}
-</style>
-""", unsafe_allow_html=True)
-
 # ---------------- HERO SECTION ----------------
 if not st.session_state.started:
 
@@ -60,9 +38,33 @@ if not st.session_state.started:
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    if st.button("🔍 Get Started"):
-        st.session_state.started = True
-        st.rerun()
+    # -------- FIXED CENTER BUTTON --------
+    col1, col2, col3 = st.columns([1,2,1])
+
+    with col2:
+        st.markdown("""
+        <style>
+        div.stButton > button {
+            width: 100%;
+            padding: 14px;
+            font-size: 18px;
+            border-radius: 12px;
+            border: 1px solid #444;
+            background-color: #111827;
+            color: white;
+            transition: 0.3s;
+        }
+
+        div.stButton > button:hover {
+            background-color: #1f2937;
+            border: 1px solid #666;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+
+        if st.button("🔍 Get Started"):
+            st.session_state.started = True
+            st.rerun()
 
     st.markdown("<br><br>", unsafe_allow_html=True)
     st.markdown("<hr style='border:1px solid #333;'>", unsafe_allow_html=True)
