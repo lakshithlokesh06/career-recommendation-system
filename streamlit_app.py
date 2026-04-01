@@ -14,7 +14,7 @@ if "started" not in st.session_state:
 # ---------------- HERO SECTION ----------------
 if not st.session_state.started:
 
-    st.title("🚀 Discover Your Ideal Career Path with AI")
+    st.title("Discover Your Ideal Career Path with AI")
 
     st.markdown("""
     Find the best career based on your skills using intelligent analysis.  
