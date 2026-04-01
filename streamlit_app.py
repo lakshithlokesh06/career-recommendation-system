@@ -11,32 +11,68 @@ recommend_career = load_predictor()
 if "started" not in st.session_state:
     st.session_state.started = False
 
+# -------- BACKGROUND STYLE --------
+st.markdown("""
+<style>
+.stApp {
+    background: radial-gradient(circle at top, #1f2937, #020617);
+}
+</style>
+""", unsafe_allow_html=True)
+
 # ---------------- HERO SECTION ----------------
 if not st.session_state.started:
 
-    st.title("Discover Your Ideal Career Path with AI")
-
     st.markdown("""
-    Find the best career based on your skills using intelligent analysis.  
+    <h1 style='text-align: center;'>🚀 Discover Your Ideal Career Path with AI</h1>
+
+    <p style='text-align: center; font-size:18px;'>
+    Find the best career based on your skills using intelligent analysis.<br>
     Enter your skills and get personalized career recommendations instantly.
+    </p>
 
+    <p style='text-align: center; font-size:16px;'>
     💡 Example: Python, SQL, Machine Learning, Power BI, Statistics
-    """)
+    </p>
+    """, unsafe_allow_html=True)
 
-    if st.button("🔍 Get Started"):
-        st.session_state.started = True
-        st.rerun()
+    st.markdown("<br>", unsafe_allow_html=True)
 
-    st.markdown("---")
+    # Centered button
+    col1, col2, col3 = st.columns([1,2,1])
+    with col2:
+        if st.button("🔍 Get Started"):
+            st.session_state.started = True
+            st.rerun()
 
-    st.subheader("💡 Key Features")
+    st.markdown("<br><br>", unsafe_allow_html=True)
 
-    st.markdown("""
-    ✨ Smart Skill Matching  
-    📊 AI-Based Career Prediction  
-    🎯 Personalized Recommendations  
-    ⚡ Instant Results  
-    """)
+    st.markdown("<hr style='border:1px solid #333;'>", unsafe_allow_html=True)
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    # ---------------- FEATURES SECTION ----------------
+    st.markdown("<h2 style='text-align: center;'>💡 Key Features</h2>", unsafe_allow_html=True)
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.markdown("### ✨ Smart Skill Matching")
+        st.markdown("Accurately matches your skills with career paths.")
+
+        st.markdown("<br>", unsafe_allow_html=True)
+
+        st.markdown("### 🎯 Personalized Recommendations")
+        st.markdown("Gives tailored career suggestions based on your input.")
+
+    with col2:
+        st.markdown("### 📊 AI-Based Prediction")
+        st.markdown("Uses intelligent models for accurate predictions.")
+
+        st.markdown("<br>", unsafe_allow_html=True)
+
+        st.markdown("### ⚡ Instant Results")
+        st.markdown("Get career insights instantly.")
 
 # ---------------- INPUT + OUTPUT ----------------
 else:
