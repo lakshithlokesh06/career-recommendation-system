@@ -7,27 +7,40 @@ def load_predictor():
 
 recommend_career = load_predictor()
 
-st.title("AI Career Recommendation System")
-st.write("Enter 5 skills and select whether they are Primary or Secondary.")
+# ---------------- HEADER ----------------
+st.title("🚀 AI Career Recommendation System")
+st.markdown("Find your ideal career path using AI-driven skill analysis.")
+
+st.markdown("---")
+
+# ---------------- INPUT SECTION ----------------
+st.subheader("🧠 Enter Your Skills")
+st.write("Select your strongest (Primary) and supporting (Secondary) skills.")
 
 skill_inputs = []
 
-for i in range(1,6):
+for i in range(1, 6):
 
-    skill = st.text_input(f"Skill {i}")
+    col1, col2 = st.columns([2,1])
 
-    type_skill = st.radio(
-        f"Skill {i} Type",
-        ["Primary","Secondary"],
-        horizontal=True,
-        key=f"type{i}"
-    )
+    with col1:
+        skill = st.text_input(f"Skill {i}", key=f"skill{i}")
 
-    skill_inputs.append((skill,type_skill))
+    with col2:
+        type_skill = st.radio(
+            f"Type",
+            ["Primary", "Secondary"],
+            horizontal=True,
+            key=f"type{i}"
+        )
 
+    skill_inputs.append((skill, type_skill))
 
-predict = st.button("Predict Career")
+st.markdown("")
 
+predict = st.button("🔍 Analyze My Career Path")
+
+# ---------------- OUTPUT SECTION ----------------
 if predict:
 
     with st.spinner("🔍 Analyzing skills and predicting career..."):
@@ -42,6 +55,24 @@ if predict:
 
     st.markdown("---")
 
-    st.subheader("🎯 Career Recommendation")
+    st.subheader("🎯 Your Career Insights")
 
-    st.success(result)
+    # Split output into sections
+    sections = result.split("Explanation:")
+
+    main_output = sections[0]
+    explanation_output = sections[1] if len(sections) > 1 else ""
+
+    # ---------------- CAREER RESULT ----------------
+    st.success(main_output)
+
+    st.markdown("")
+
+    # ---------------- AI EXPLANATION ----------------
+    st.info("🧠 AI Explanation")
+    st.write(explanation_output)
+
+    st.markdown("---")
+
+    # ---------------- FOOTER ----------------
+    st.caption("Built using AI & Machine Learning")
