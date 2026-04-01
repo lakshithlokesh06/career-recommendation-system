@@ -58,13 +58,13 @@ if not st.session_state.started:
     """, unsafe_allow_html=True)
 
     if st.button("🔍 Get Started"):
-    st.session_state.started = True
-    st.markdown("""
-        <script>
-        window.scrollTo(0, 0);
-        </script>
-    """, unsafe_allow_html=True)
-    st.rerun()
+        st.session_state.started = True
+        st.markdown("""
+            <script>
+            window.scrollTo(0, 0);
+            </script>
+        """, unsafe_allow_html=True)
+        st.rerun()
 
     st.markdown("<br><br>", unsafe_allow_html=True)
     st.markdown("<hr style='border:1px solid #333;'>", unsafe_allow_html=True)
