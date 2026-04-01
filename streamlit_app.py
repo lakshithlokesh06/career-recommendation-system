@@ -38,26 +38,21 @@ if not st.session_state.started:
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-# -------- FIXED CENTER BUTTON --------
-col1, col2, col3 = st.columns([1,2,1])
-
-with col2:
+    # -------- PERFECT CENTER BUTTON --------
     st.markdown("""
     <style>
-    div.stButton > button {
-        width: 100%;
-        padding: 14px;
+    div[data-testid="stButton"] {
+        text-align: center;
+    }
+    div[data-testid="stButton"] > button {
+        margin: 0 auto;
+        display: block;
+        padding: 14px 28px;
         font-size: 18px;
         border-radius: 12px;
         border: 1px solid #444;
         background-color: #111827;
         color: white;
-        transition: 0.3s;
-    }
-
-    div.stButton > button:hover {
-        background-color: #1f2937;
-        border: 1px solid #666;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -163,7 +158,6 @@ else:
             elif shap_text != "" or "prediction of" in line.lower():
                 shap_text += line + "\n"
 
-        # -------- CARD 1 --------
         st.success(f"🎯 Predicted Career: {career}")
 
         st.markdown(f"""
@@ -176,13 +170,11 @@ else:
 
         st.markdown("---")
 
-        # -------- CARD 2 --------
         st.info("📊 Model Explanation (Explainable AI)")
         st.write(shap_text.strip())
 
         st.markdown("---")
 
-        # -------- CARD 3 --------
         st.subheader("🧠 AI Explanation")
         st.write(explanation_part)
 
