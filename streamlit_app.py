@@ -2,21 +2,21 @@ import streamlit as st
 st.markdown("""
 <style>
 .stApp {
-    background: radial-gradient(circle at left, rgba(59,130,246,0.25), transparent 40%),
-                radial-gradient(circle at right, rgba(168,85,247,0.25), transparent 40%),
+    background: radial-gradient(circle at left, rgba(59,130,246,0.15), transparent 40%),
+                radial-gradient(circle at right, rgba(168,85,247,0.15), transparent 40%),
                 #0f172a;
     animation: glowPulse 6s ease-in-out infinite alternate;
 }
 
 @keyframes glowPulse {
     0% {
-        background: radial-gradient(circle at left, rgba(59,130,246,0.15), transparent 40%),
-                    radial-gradient(circle at right, rgba(168,85,247,0.15), transparent 40%),
+        background: radial-gradient(circle at left, rgba(59,130,246,0.08), transparent 40%),
+                    radial-gradient(circle at right, rgba(168,85,247,0.08), transparent 40%),
                     #0f172a;
     }
     100% {
-        background: radial-gradient(circle at left, rgba(59,130,246,0.30), transparent 40%),
-                    radial-gradient(circle at right, rgba(168,85,247,0.30), transparent 40%),
+        background: radial-gradient(circle at left, rgba(59,130,246,0.20), transparent 40%),
+                    radial-gradient(circle at right, rgba(168,85,247,0.20), transparent 40%),
                     #0f172a;
     }
 }
