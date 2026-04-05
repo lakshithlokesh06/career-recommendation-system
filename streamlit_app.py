@@ -80,22 +80,17 @@ if not st.session_state.started:
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-# -------- CENTER BUTTON --------
+    # -------- CENTER BUTTON --------
+    col1, col2, col3 = st.columns([1,2,1])
 
-col1, col2, col3 = st.columns([1,2,1])
+    with col2:
+        if st.button("➜ Get Started"):
+            st.session_state.started = True
+            st.rerun()
 
-with col2:
-    if st.button("➜ Get Started"):
-        st.session_state.started = True
-        st.markdown("""
-            <script>
-            window.scrollTo(0, 0);
-            </script>
-        """, unsafe_allow_html=True)
-        st.rerun()
+    st.markdown("<br><br>", unsafe_allow_html=True)
 
-
-    # ---------------- UNIQUE FEATURES ----------------
+    # -------- FEATURES --------
     st.markdown("<h2 style='text-align:center;'>⚙️ What Makes This System Powerful</h2>", unsafe_allow_html=True)
 
     col1, col2, col3 = st.columns(3)
