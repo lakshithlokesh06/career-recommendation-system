@@ -2,8 +2,8 @@ import streamlit as st
 st.markdown("""
 <style>
 .stApp {
-    background: radial-gradient(circle at left, rgba(59,130,246,0.15), transparent 40%),
-                radial-gradient(circle at right, rgba(168,85,247,0.15), transparent 40%),
+    background: radial-gradient(circle at left, rgba(59,130,246,0.25), transparent 40%),
+                radial-gradient(circle at right, rgba(168,85,247,0.25), transparent 40%),
                 #0f172a;
 }
 </style>
