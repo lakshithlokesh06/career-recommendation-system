@@ -52,11 +52,18 @@ st.markdown("""
 if not st.session_state.started:
 
     st.markdown("""
-    <h1 style='text-align: center; font-size:28px; color:#cbd5f5;'>
+    <h1 style='text-align: center;
+               font-size: 48px;
+               font-weight: 800;
+               background: linear-gradient(90deg, #4f46e5, #22c55e, #06b6d4);
+               -webkit-background-clip: text;
+               -webkit-text-fill-color: transparent;'>
     AI Career Recommendation System
     </h1>
 
-    <h1 style='text-align: center;'> Discover Your Ideal Career Path with AI</h1>
+    <h2 style='text-align: center; font-size:26px; color:#cbd5f5;'>
+    🚀 Discover Your Ideal Career Path with AI
+    </h2>
 
     <p style='text-align: center; font-size:18px;'>
     Find the best career based on your skills using intelligent analysis.<br>
