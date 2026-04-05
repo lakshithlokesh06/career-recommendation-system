@@ -94,9 +94,6 @@ with col2:
         """, unsafe_allow_html=True)
         st.rerun()
 
-    st.markdown("<br><br>", unsafe_allow_html=True)
-    st.markdown("<hr style='border:1px solid #333;'>", unsafe_allow_html=True)
-    st.markdown("<br>", unsafe_allow_html=True)
 
     # ---------------- UNIQUE FEATURES ----------------
     st.markdown("<h2 style='text-align:center;'>⚙️ What Makes This System Powerful</h2>", unsafe_allow_html=True)
