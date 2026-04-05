@@ -246,7 +246,17 @@ else:
         st.markdown("---")
 
         st.subheader("🧠 AI Explanation")
-        st.write(explanation_part)
+
+        # ✅ ADDED CODE FOR JUSTIFY ALIGNMENT
+        st.markdown("""
+        <style>
+        p {
+            text-align: justify;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+
+        st.markdown(f"<p>{explanation_part}</p>", unsafe_allow_html=True)
 
         st.markdown("---")
         st.caption("Built using AI & Machine Learning")
