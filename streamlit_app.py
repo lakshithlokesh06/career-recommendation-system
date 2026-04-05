@@ -113,7 +113,7 @@ if not st.session_state.started:
     st.markdown("<br>", unsafe_allow_html=True)
 
     # ---------------- UNIQUE FEATURES ----------------
-    st.markdown("<h2 style='text-align:center;'>What Makes This System Powerful</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align:center;'>⚙️ What Makes This System Powerful</h2>", unsafe_allow_html=True)
 
     col1, col2, col3 = st.columns(3)
 
