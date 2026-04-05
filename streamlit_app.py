@@ -89,6 +89,15 @@ if not st.session_state.started:
             st.rerun()
 
     st.markdown("<br><br>", unsafe_allow_html=True)
+    
+    st.markdown("""
+    <hr style='
+        border: none;
+        height: 1px;
+        background: linear-gradient(to right, transparent, #374151, transparent);
+        margin: 50px 0;
+    '>
+    """, unsafe_allow_html=True)
 
     # -------- FEATURES --------
     st.markdown("<h2 style='text-align:center;'>⚙️ What Makes This System Powerful</h2>", unsafe_allow_html=True)
