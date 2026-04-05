@@ -247,16 +247,24 @@ else:
 
         st.subheader("🧠 AI Explanation")
 
-        # ✅ ADDED CODE FOR JUSTIFY ALIGNMENT
+        # ✅ PREMIUM UI + JUSTIFY + FONT
         st.markdown("""
         <style>
-        p {
+        .glass-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.7;
             text-align: justify;
         }
         </style>
         """, unsafe_allow_html=True)
 
-        st.markdown(f"<p>{explanation_part}</p>", unsafe_allow_html=True)
+        st.markdown(f'<div class="glass-box">{explanation_part}</div>', unsafe_allow_html=True)
 
         st.markdown("---")
         st.caption("Built using AI & Machine Learning")
