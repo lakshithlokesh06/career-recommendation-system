@@ -81,7 +81,7 @@ if not st.session_state.started:
     st.markdown("<br>", unsafe_allow_html=True)
 
     # -------- CENTER BUTTON --------
-    col1, col2, col3 = st.columns([2,1.5,2])
+    col1, col2, col3 = st.columns([2.5,1.5,2])
 
     with col2:
         if st.button("➜ Get Started"):
