@@ -241,7 +241,7 @@ else:
             elif shap_text != "" or "prediction of" in line.lower():
                 shap_text += line + "\n"
 
-        st.success(f"🎯 Predicted Career: {career}")
+        st.success(f" Predicted Career: {career}")
 
         st.markdown(f"""
 **Primary Skills:** {primary}  
