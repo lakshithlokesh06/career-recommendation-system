@@ -1,4 +1,13 @@
 import streamlit as st
+st.markdown("""
+<style>
+.stApp {
+    background: radial-gradient(circle at left, rgba(59,130,246,0.15), transparent 40%),
+                radial-gradient(circle at right, rgba(168,85,247,0.15), transparent 40%),
+                #0f172a;
+}
+</style>
+""", unsafe_allow_html=True)
 
 @st.cache_resource
 def load_predictor():
