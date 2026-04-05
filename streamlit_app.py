@@ -80,26 +80,12 @@ if not st.session_state.started:
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # -------- CENTER BUTTON --------
-    st.markdown("""
-    <style>
-    div[data-testid="stButton"] {
-        text-align: center;
-    }
-    div[data-testid="stButton"] > button {
-        margin: 0 auto;
-        display: block;
-        padding: 14px 28px;
-        font-size: 18px;
-        border-radius: 12px;
-        border: 1px solid #444;
-        background-color: #111827;
-        color: white;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+# -------- CENTER BUTTON --------
 
-    if st.button("🔍 Get Started"):
+col1, col2, col3 = st.columns([1,2,1])
+
+with col2:
+    if st.button("➜ Get Started"):
         st.session_state.started = True
         st.markdown("""
             <script>
