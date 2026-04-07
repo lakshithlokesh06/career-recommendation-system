@@ -1,10 +1,10 @@
-# 🚀 AI-Based Career Recommendation System
+# AI-Based Career Recommendation System
 
 An intelligent web application that recommends suitable career paths based on user-provided skills using Machine Learning, Explainable AI, and LLM-powered insights.
 
 ---
 
-## 📌 Overview
+## Overview
 
 Choosing the right career path can be overwhelming. This system simplifies the process by analyzing user skills and predicting the most relevant career options.
 
@@ -12,25 +12,25 @@ It not only provides predictions but also explains *why* a particular career is 
 
 ---
 
-## ✨ Features
+## Features
 
 * 🔍 **Skill-Based Prediction**
   Input 5 skills and get personalized career recommendations.
 
-* 🧠 **Machine Learning Model**
+* **Machine Learning Model**
   Processes and classifies skills into primary and secondary categories for accurate predictions.
 
-* 📊 **Explainable AI (XAI)**
+*  **Explainable AI (XAI)**
   SHAP-inspired approach highlights how each skill impacts the prediction:
 
   * High Impact
   * Moderate Impact
   * Low Impact
 
-* 🤖 **LLM Integration (Groq API)**
+  **LLM Integration (Groq API)**
   Generates detailed, human-readable explanations for recommendations.
 
-* 🌐 **Interactive UI (Streamlit)**
+* **Interactive UI (Streamlit)**
   Clean and user-friendly interface with:
 
   * Landing page
@@ -39,7 +39,7 @@ It not only provides predictions but also explains *why* a particular career is 
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 1. **User Input Layer**
 
@@ -75,7 +75,7 @@ It not only provides predictions but also explains *why* a particular career is 
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
 * **Programming Language:** Python
 * **Machine Learning:** Scikit-learn (or your model library)
@@ -85,7 +85,7 @@ It not only provides predictions but also explains *why* a particular career is 
 
 ---
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 ```bash
 # Clone the repository
@@ -103,7 +103,7 @@ streamlit run app.py
 
 ---
 
-## 🧪 Example Input
+## Example Input
 
 ```text
 Skills:
@@ -116,31 +116,31 @@ Skills:
 
 ### Output:
 
-* 🎯 Recommended Career: Data Scientist
+* Recommended Career: Data Scientist
 
-* 📊 Skill Impact:
+* Skill Impact:
 
   * Python → High
   * Machine Learning → High
   * Communication → Moderate
 
-* 🧾 AI-Generated Explanation:
+* AI-Generated Explanation:
 
   > "Based on your strong technical and analytical skills..."
 
 ---
 
-## 🎯 Future Improvements
+## Future Improvements
 
-* 🔄 Feedback loop for continuous learning
-* 📈 Multiple career predictions with confidence scores
-* 🌍 Integration with real-world datasets (LinkedIn, O*NET)
-* 🎓 Career roadmap suggestions (skills + courses)
-* ☁️ Cloud deployment (AWS / Streamlit Cloud)
+* Feedback loop for continuous learning
+* Multiple career predictions with confidence scores
+* Integration with real-world datasets (LinkedIn, O*NET)
+* Career roadmap suggestions (skills + courses)
+* Cloud deployment (AWS / Streamlit Cloud)
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Feel free to fork the repo and submit a pull request.
 
