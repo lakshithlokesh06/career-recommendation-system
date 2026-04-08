@@ -169,7 +169,7 @@ if not st.session_state.started:
 
 # ---------------- INPUT + OUTPUT ----------------
 else:
-
+    st.title("AI Career Recommendation System")
     st.subheader("🧠 Tell Us About Your Skills")
 
     st.write("Select your strongest (Primary) and supporting (Secondary) skills to get accurate career recommendations.")
