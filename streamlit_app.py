@@ -1,4 +1,6 @@
 import streamlit as st
+
+# ✅ BACKGROUND GLOW (LEFT BLUE + RIGHT PURPLE)
 st.markdown("""
 <style>
 .stApp {
@@ -20,10 +22,10 @@ recommend_career = load_predictor()
 if "started" not in st.session_state:
     st.session_state.started = False
 
-# -------- BACKGROUND STYLE --------
+# -------- BACKGROUND STYLE (FIXED - no override) --------
 st.markdown("""
 <style>
-.stApp {
+body {
     background: radial-gradient(circle at top, #1f2937, #020617);
 }
 
@@ -89,7 +91,6 @@ if not st.session_state.started:
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # -------- CENTER BUTTON --------
     col1, col2, col3 = st.columns([2.5,1.5,2])
 
     with col2:
@@ -108,7 +109,6 @@ if not st.session_state.started:
     '>
     """, unsafe_allow_html=True)
 
-    # -------- FEATURES --------
     st.markdown("<h2 style='text-align:center;'>What Makes This System Powerful</h2>", unsafe_allow_html=True)
 
     col1, col2, col3 = st.columns(3)
@@ -170,8 +170,9 @@ if not st.session_state.started:
 # ---------------- INPUT + OUTPUT ----------------
 else:
 
-    if st.button("⬅ Back"):
-        st.session_state.page = False
+    # ✅ FIXED BACK BUTTON
+    if st.button("⬅ Back", key="back_btn"):
+        st.session_state.started = False
         st.rerun()
 
     st.title("AI Career Recommendation System")
@@ -261,7 +262,6 @@ else:
 
         st.subheader("🧠 AI Explanation")
 
-        # ✅ PREMIUM UI + JUSTIFY + FONT
         st.markdown("""
         <style>
         .glass-box {
@@ -269,7 +269,6 @@ else:
             padding: 20px;
             border-radius: 15px;
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.1);
             font-family: 'Segoe UI', sans-serif;
             line-height: 1.7;
