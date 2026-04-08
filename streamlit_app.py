@@ -169,6 +169,11 @@ if not st.session_state.started:
 
 # ---------------- INPUT + OUTPUT ----------------
 else:
+
+    if st.button("⬅ Back"):
+        st.session_state.page = "home"
+        st.rerun()
+
     st.title("AI Career Recommendation System")
     st.subheader("🧠 Tell Us About Your Skills")
 
