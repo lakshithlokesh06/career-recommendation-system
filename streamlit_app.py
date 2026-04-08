@@ -171,7 +171,7 @@ if not st.session_state.started:
 else:
 
     if st.button("⬅ Back"):
-        st.session_state.page = "home"
+        st.session_state.page = False
         st.rerun()
 
     st.title("AI Career Recommendation System")
